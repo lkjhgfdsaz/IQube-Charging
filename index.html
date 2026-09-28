@@ -45,7 +45,7 @@ th{background:#0066cc;color:#fff}
 <div class="grid">
 <div>
 <label>Current Battery (%)</label>
-<input type="number" id="battery" min="0" max="100" step="0.1" value="56">
+<input type="number" id="battery" min="0" max="100" step="0.1" value="90">
 </div>
 <div>
 <label>Charging Target (%)</label>
@@ -77,7 +77,7 @@ th{background:#0066cc;color:#fff}
 </div>
 <div>
 <label>Electricity Tariff (₹/kWh)</label>
-<input type="number" id="tariff" min="0" step="0.01" value="8">
+<input type="number" id="tariff" min="0" step="0.01" value="5">
 </div>
 <div>
 <label>Battery Capacity (kWh)</label>
@@ -100,13 +100,13 @@ th{background:#0066cc;color:#fff}
 <p class="small">Enter your expected riding distance for each day. The planner uses these values to forecast battery level.</p>
 <table class="daily">
 <tr><th>Day</th><th>Distance (KM)</th></tr>
-<tr><td>Monday</td><td><input type="number" id="monKm" min="0" step="0.1" value="24.5"></td></tr>
-<tr><td>Tuesday</td><td><input type="number" id="tueKm" min="0" step="0.1" value="24.5"></td></tr>
-<tr><td>Wednesday</td><td><input type="number" id="wedKm" min="0" step="0.1" value="24.5"></td></tr>
-<tr><td>Thursday</td><td><input type="number" id="thuKm" min="0" step="0.1" value="24.5"></td></tr>
-<tr><td>Friday</td><td><input type="number" id="friKm" min="0" step="0.1" value="24.5"></td></tr>
+<tr><td>Monday</td><td><input type="number" id="monKm" min="0" step="0.1" value="21.5"></td></tr>
+<tr><td>Tuesday</td><td><input type="number" id="tueKm" min="0" step="0.1" value="21.5"></td></tr>
+<tr><td>Wednesday</td><td><input type="number" id="wedKm" min="0" step="0.1" value="21.5"></td></tr>
+<tr><td>Thursday</td><td><input type="number" id="thuKm" min="0" step="0.1" value="21.5"></td></tr>
+<tr><td>Friday</td><td><input type="number" id="friKm" min="0" step="0.1" value="21.5"></td></tr>
 <tr><td>Saturday</td><td><input type="number" id="satKm" min="0" step="0.1" value="2"></td></tr>
-<tr><td>Sunday</td><td><input type="number" id="sunKm" min="0" step="0.1" value="12.4"></td></tr>
+<tr><td>Sunday</td><td><input type="number" id="sunKm" min="0" step="0.1" value="5"></td></tr>
 </table>
 </div>
 
@@ -120,7 +120,7 @@ th{background:#0066cc;color:#fff}
 <label><input type="checkbox" id="chargeWed" checked> Wednesday night</label>
 <label><input type="checkbox" id="chargeThu"> Thursday night</label>
 <label><input type="checkbox" id="chargeFri"> Friday night</label>
-<label><input type="checkbox" id="chargeSat"> Saturday night</label>
+<label><input type="checkbox" id="chargeSat"checked> Saturday night</label>
 </div>
 </div>
 
