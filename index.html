@@ -6,7 +6,9 @@
 <title>TVS iQube 3.5 kWh Smart Charging Planner</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box;
+}
 
 body{
     font-family:Arial,sans-serif;
@@ -25,7 +27,9 @@ body{
     box-shadow:0 4px 18px rgba(0,0,0,.09);
 }
 
-h1,h2,h3{color:#0066cc}
+h1,h2,h3{
+    color:#0066cc;
+}
 
 h1{
     text-align:center;
@@ -70,11 +74,17 @@ button{
     font-size:16px;
 }
 
-button:hover{background:#004e99}
+button:hover{
+    background:#004e99;
+}
 
-button.secondary{background:#555}
+button.secondary{
+    background:#555;
+}
 
-button.secondary:hover{background:#333}
+button.secondary:hover{
+    background:#333;
+}
 
 table{
     width:100%;
@@ -94,31 +104,42 @@ th{
     color:#fff;
 }
 
-.daily input{min-width:75px}
+.daily input{
+    min-width:75px;
+}
 
-.mode-box,.stats-box{
+.mode-box,
+.stats-box{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:12px;
     margin-top:12px;
 }
 
-.mode,.stat{
+.mode,
+.stat{
     background:#fff;
     padding:15px;
     border-radius:10px;
     border-left:6px solid #0066cc;
 }
 
-.eco{border-left-color:green}
-.power{border-left-color:red}
+.eco{
+    border-left-color:green;
+}
+
+.power{
+    border-left-color:red;
+}
 
 .stat h3{
     margin:0 0 8px;
     font-size:15px;
 }
 
-.stat strong{font-size:22px}
+.stat strong{
+    font-size:22px;
+}
 
 .charge-box{
     padding:16px;
@@ -130,9 +151,17 @@ th{
     background:#fff3cd;
 }
 
-.good-box{background:#d4edda}
-.warning-box{background:#fff3cd}
-.danger-box{background:#ffeaea}
+.good-box{
+    background:#d4edda;
+}
+
+.warning-box{
+    background:#fff3cd;
+}
+
+.danger-box{
+    background:#ffeaea;
+}
 
 .tip{
     background:#eef6ff;
@@ -147,9 +176,13 @@ th{
     color:#666;
 }
 
-.status-good{background:#d4edda}
-.status-watch{background:#fff3cd}
-.status-danger{background:#ffeaea}
+.status-watch{
+    background:#fff3cd;
+}
+
+.status-danger{
+    background:#ffeaea;
+}
 
 .note{
     padding:10px;
@@ -174,28 +207,51 @@ th{
     margin:0;
 }
 
+.balance-box{
+    background:#e8f3ff;
+    border-left:6px solid:#0066cc;
+    padding:15px;
+    border-radius:10px;
+    margin-top:15px;
+    text-align:center;
+}
+
 @media(max-width:900px){
-    .grid,.mode-box,.stats-box{
+    .grid,
+    .mode-box,
+    .stats-box{
         grid-template-columns:repeat(2,1fr);
     }
 }
 
 @media(max-width:600px){
-    body{padding:8px}
-    .container{padding:12px}
+    body{
+        padding:8px;
+    }
 
-    .grid,.mode-box,.stats-box{
+    .container{
+        padding:12px;
+    }
+
+    .grid,
+    .mode-box,
+    .stats-box{
         grid-template-columns:1fr;
     }
 
-    table{font-size:12px}
+    table{
+        font-size:12px;
+    }
 
-    th,td{padding:6px}
+    th,td{
+        padding:6px;
+    }
 }
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
 <h1>🛵 TVS iQube 3.5 kWh Smart Charging Planner</h1>
@@ -210,11 +266,11 @@ th{
         </div>
 
         <div>
-            <label for="chargeTarget">Charging Target (%)</label>
+            <label for="chargeTarget">Normal Charging Target (%)</label>
             <select id="chargeTarget">
-                <option value="80" selected>80%</option>
+                <option value="80">80%</option>
                 <option value="85">85%</option>
-                <option value="90">90%</option>
+                <option value="90" selected>90%</option>
                 <option value="95">95%</option>
                 <option value="100">100%</option>
             </select>
@@ -271,8 +327,8 @@ th{
 <div class="card">
     <h3>📅 Weekly Usage Pattern</h3>
     <p class="small">
-        Enter your expected riding distance for each day. The planner uses these values
-        to forecast battery level.
+        Enter your expected riding distance for each day. The planner uses these
+        values to forecast the remaining battery percentage.
     </p>
 
     <table class="daily">
@@ -280,20 +336,49 @@ th{
             <th>Day</th>
             <th>Distance (KM)</th>
         </tr>
-        <tr><td>Monday</td><td><input type="number" id="monKm" min="0" step="0.1" value="25"></td></tr>
-        <tr><td>Tuesday</td><td><input type="number" id="tueKm" min="0" step="0.1" value="25"></td></tr>
-        <tr><td>Wednesday</td><td><input type="number" id="wedKm" min="0" step="0.1" value="25"></td></tr>
-        <tr><td>Thursday</td><td><input type="number" id="thuKm" min="0" step="0.1" value="25"></td></tr>
-        <tr><td>Friday</td><td><input type="number" id="friKm" min="0" step="0.1" value="25"></td></tr>
-        <tr><td>Saturday</td><td><input type="number" id="satKm" min="0" step="0.1" value="5"></td></tr>
-        <tr><td>Sunday</td><td><input type="number" id="sunKm" min="0" step="0.1" value="10"></td></tr>
+
+        <tr>
+            <td>Monday</td>
+            <td><input type="number" id="monKm" min="0" step="0.1" value="25"></td>
+        </tr>
+
+        <tr>
+            <td>Tuesday</td>
+            <td><input type="number" id="tueKm" min="0" step="0.1" value="25"></td>
+        </tr>
+
+        <tr>
+            <td>Wednesday</td>
+            <td><input type="number" id="wedKm" min="0" step="0.1" value="25"></td>
+        </tr>
+
+        <tr>
+            <td>Thursday</td>
+            <td><input type="number" id="thuKm" min="0" step="0.1" value="25"></td>
+        </tr>
+
+        <tr>
+            <td>Friday</td>
+            <td><input type="number" id="friKm" min="0" step="0.1" value="25"></td>
+        </tr>
+
+        <tr>
+            <td>Saturday</td>
+            <td><input type="number" id="satKm" min="0" step="0.1" value="5"></td>
+        </tr>
+
+        <tr>
+            <td>Sunday</td>
+            <td><input type="number" id="sunKm" min="0" step="0.1" value="10"></td>
+        </tr>
     </table>
 </div>
 
 <div class="card">
-    <h3>🔌 Charging Schedule</h3>
+    <h3>🔌 Routine Charging Schedule</h3>
     <p class="small">
-        Select the nights when you normally charge. Charging happens after that day's ride.
+        Select the nights when you normally charge. Charging is applied after
+        that day’s ride, not before the ride.
     </p>
 
     <div class="grid">
@@ -332,6 +417,49 @@ th{
             Saturday night
         </label>
     </div>
+</div>
+
+<div class="card">
+    <h3>🔋 Cell Balancing Schedule</h3>
+
+    <p class="small">
+        Use this section as a reminder for an occasional 100% charge. Keep your
+        normal target at 80%–90%, then temporarily select 100% on the suggested
+        weekend balancing date.
+    </p>
+
+    <div class="grid">
+        <div>
+            <label for="balanceInterval">Balancing Interval</label>
+            <select id="balanceInterval">
+                <option value="2">Every 2 weeks</option>
+                <option value="3" selected>Every 3 weeks</option>
+                <option value="4">Every 4 weeks</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="balanceDay">Preferred Weekend Day</label>
+            <select id="balanceDay">
+                <option value="Saturday" selected>Saturday</option>
+                <option value="Sunday">Sunday</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="lastBalanceDate">Last 100% Charge Date</label>
+            <input type="date" id="lastBalanceDate">
+        </div>
+
+        <div>
+            <label>&nbsp;</label>
+            <button type="button" onclick="calculate()">
+                Update Balancing Date
+            </button>
+        </div>
+    </div>
+
+    <div id="balanceRecommendation"></div>
 </div>
 
 <div class="card">
@@ -412,11 +540,12 @@ th{
     <ul>
         <li>Eco Mode full-range reference: 115 KM.</li>
         <li>Power Mode full-range reference: 76 KM.</li>
-        <li>Battery percentage is the same in Eco and Power mode.</li>
-        <li>Eco and Power mode change estimated range, not battery percentage.</li>
-        <li>Scheduled charging occurs after the selected day’s ride.</li>
-        <li>Charging cost includes the selected charging-efficiency loss.</li>
-        <li>Use actual daily distance values for more accurate predictions.</li>
+        <li>Battery percentage is common to both riding modes.</li>
+        <li>Eco/Power mode changes estimated range, not battery percentage.</li>
+        <li>Routine charging is applied after the selected day’s ride.</li>
+        <li>Cost includes the charging efficiency value entered above.</li>
+        <li>Use the cell-balancing reminder for an occasional 100% charge.</li>
+        <li>Use actual daily riding distance for the best forecast.</li>
     </ul>
 </div>
 
@@ -437,8 +566,8 @@ const dayNames = [
 ];
 
 function val(id){
-    const n = parseFloat(document.getElementById(id).value);
-    return Number.isFinite(n) ? n : 0;
+    const number = parseFloat(document.getElementById(id).value);
+    return Number.isFinite(number) ? number : 0;
 }
 
 function getUsage(){
@@ -454,7 +583,7 @@ function getUsage(){
 }
 
 function chargeScheduled(day){
-    const ids = {
+    const chargeIds = {
         Sunday:"chargeSun",
         Monday:"chargeMon",
         Tuesday:"chargeTue",
@@ -464,15 +593,103 @@ function chargeScheduled(day){
         Saturday:"chargeSat"
     };
 
-    return document.getElementById(ids[day]).checked;
+    return document.getElementById(chargeIds[day]).checked;
 }
 
 function status(percent, reserve){
-    if(percent < 10) return "🔴 Low Battery";
-    if(percent <= reserve) return "🟠 Charge Soon";
-    if(percent <= reserve + 10) return "🟡 Watch";
-    if(percent <= 50) return "🟢 Healthy";
+    if(percent < 10){
+        return "🔴 Low Battery";
+    }
+
+    if(percent <= reserve){
+        return "🟠 Charge Soon";
+    }
+
+    if(percent <= reserve + 10){
+        return "🟡 Watch";
+    }
+
+    if(percent <= 50){
+        return "🟢 Healthy";
+    }
+
     return "✅ Good";
+}
+
+function formatDateForInput(date){
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+}
+
+function formatIndianDate(date){
+    return new Intl.DateTimeFormat("en-IN", {
+        weekday:"long",
+        day:"2-digit",
+        month:"long",
+        year:"numeric"
+    }).format(date);
+}
+
+function getNextBalancingDate(){
+    const intervalWeeks = parseInt(
+        document.getElementById("balanceInterval").value
+    );
+
+    const preferredDay = document.getElementById("balanceDay").value;
+
+    const lastBalanceValue =
+        document.getElementById("lastBalanceDate").value;
+
+    let baseDate;
+
+    if(lastBalanceValue){
+        baseDate = new Date(lastBalanceValue + "T12:00:00");
+    } else {
+        baseDate = new Date();
+        baseDate.setHours(12, 0, 0, 0);
+    }
+
+    const nextBalanceDate = new Date(baseDate);
+
+    nextBalanceDate.setDate(
+        nextBalanceDate.getDate() + (intervalWeeks * 7)
+    );
+
+    const preferredDayNumber =
+        preferredDay === "Saturday" ? 6 : 0;
+
+    while(nextBalanceDate.getDay() !== preferredDayNumber){
+        nextBalanceDate.setDate(
+            nextBalanceDate.getDate() + 1
+        );
+    }
+
+    return nextBalanceDate;
+}
+
+function updateBalancingRecommendation(){
+    const intervalWeeks = document.getElementById("balanceInterval").value;
+    const preferredDay = document.getElementById("balanceDay").value;
+    const nextBalancingDate = getNextBalancingDate();
+
+    document.getElementById("balanceRecommendation").innerHTML = `
+        <div class="balance-box">
+            <h3>🔋 Next Cell-Balancing Reminder</h3>
+            <strong>${formatIndianDate(nextBalancingDate)}</strong>
+            <br><br>
+            Set the charging target temporarily to <strong>100%</strong> and
+            charge on ${preferredDay} night.
+            <br>
+            <small>
+                Current selected routine: once every ${intervalWeeks} weeks.
+                After the full charge, change your normal charging target back
+                to 80%–90%.
+            </small>
+        </div>
+    `;
 }
 
 function resetDefaults(){
@@ -492,12 +709,20 @@ function resetDefaults(){
     document.getElementById("satKm").value = 5;
     document.getElementById("sunKm").value = 10;
 
+    document.getElementById("balanceInterval").value = 3;
+    document.getElementById("balanceDay").value = "Saturday";
+    document.getElementById("lastBalanceDate").value =
+        formatDateForInput(new Date());
+
     document.querySelectorAll('input[type="checkbox"]').forEach(box => {
         box.checked = false;
     });
 
     document.getElementById("chargeWed").checked = true;
     document.getElementById("chargeSat").checked = true;
+
+    document.getElementById("todayDay").value =
+        dayNames[new Date().getDay()];
 
     calculate();
 }
@@ -527,11 +752,12 @@ function calculate(){
         startBattery.toFixed(1) + "% Battery";
 
     const usage = getUsage();
+
     const today = document.getElementById("todayDay").value;
 
     const startIndex = usage.findIndex(item => item.day === today);
 
-    const rotated = [
+    const rotatedUsage = [
         ...usage.slice(startIndex),
         ...usage.slice(0, startIndex)
     ];
@@ -546,71 +772,81 @@ function calculate(){
     let nextChargeFound = false;
 
     let html = `
-    <table>
-        <tr>
-            <th>Day</th>
-            <th>Ride KM</th>
-            <th>Start Battery</th>
-            <th>After Ride</th>
-            <th>Eco Range Left</th>
-            <th>Power Range Left</th>
-            <th>Status</th>
-            <th>Night Charge</th>
-            <th>After Charge</th>
-        </tr>`;
+        <table>
+            <tr>
+                <th>Day</th>
+                <th>Ride KM</th>
+                <th>Start Battery</th>
+                <th>After Ride</th>
+                <th>Eco Range Left</th>
+                <th>Power Range Left</th>
+                <th>Status</th>
+                <th>Night Charge</th>
+                <th>After Charge</th>
+            </tr>
+    `;
 
-    rotated.forEach(item => {
-        const start = battery;
+    rotatedUsage.forEach(item => {
+        const startBatteryForDay = battery;
 
         const consumptionPercent =
             (item.km / ECO_FULL_RANGE) * 100;
 
-        const afterRide = Math.max(
+        const batteryAfterRide = Math.max(
             0,
-            start - consumptionPercent
+            startBatteryForDay - consumptionPercent
         );
 
-        const ecoLeft = afterRide / 100 * ECO_FULL_RANGE;
-        const powerLeft = afterRide / 100 * POWER_FULL_RANGE;
+        const ecoRangeLeft =
+            batteryAfterRide / 100 * ECO_FULL_RANGE;
 
-        const rideStatus = status(afterRide, reserve);
+        const powerRangeLeft =
+            batteryAfterRide / 100 * POWER_FULL_RANGE;
 
-        minimumBattery = Math.min(minimumBattery, afterRide);
+        const batteryStatus = status(
+            batteryAfterRide,
+            reserve
+        );
 
-        const scheduled = chargeScheduled(item.day);
+        minimumBattery = Math.min(
+            minimumBattery,
+            batteryAfterRide
+        );
 
-        let afterCharge = afterRide;
-        let action = "No charge";
+        const scheduledCharge = chargeScheduled(item.day);
+
+        let batteryAfterCharge = batteryAfterRide;
+        let chargeAction = "No charge";
         let afterChargeText = "—";
 
-        if(scheduled){
-            const batteryPercentToAdd = Math.max(
+        if(scheduledCharge){
+            const percentToAdd = Math.max(
                 0,
-                target - afterRide
+                target - batteryAfterRide
             );
 
-            if(batteryPercentToAdd > 0){
+            if(percentToAdd > 0){
                 const batteryEnergyAdded =
-                    (batteryPercentToAdd / 100) * capacity;
+                    (percentToAdd / 100) * capacity;
 
                 const gridEnergyForCharge =
                     batteryEnergyAdded / (efficiency / 100);
 
-                const chargeCostForSession =
+                const costForCharge =
                     gridEnergyForCharge * tariff;
 
                 weeklyGridEnergy += gridEnergyForCharge;
                 chargingSessions++;
 
-                afterCharge = target;
+                batteryAfterCharge = target;
 
-                action = `🔌 Charge to ${target}%`;
+                chargeAction = `🔌 Charge to ${target}%`;
 
                 afterChargeText = `
                     <b>${target.toFixed(1)}%</b><br>
                     <small>
                         ${gridEnergyForCharge.toFixed(2)} kWh<br>
-                        ₹${chargeCostForSession.toFixed(2)}
+                        ₹${costForCharge.toFixed(2)}
                     </small>
                 `;
 
@@ -619,11 +855,15 @@ function calculate(){
                     nextChargeFound = true;
                 }
             } else {
-                action = "✅ Already at target";
-                afterChargeText = `${afterRide.toFixed(1)}%`;
+                chargeAction = "✅ Already at target";
+                afterChargeText =
+                    batteryAfterRide.toFixed(1) + "%";
             }
-        } else if(afterRide <= reserve || ecoLeft <= bufferKm){
-            action = "🔌 Charge recommended";
+        } else if(
+            batteryAfterRide <= reserve ||
+            ecoRangeLeft <= bufferKm
+        ){
+            chargeAction = "🔌 Charge recommended";
 
             if(!firstChargeNeed){
                 firstChargeNeed = item.day;
@@ -631,53 +871,57 @@ function calculate(){
         }
 
         const rowClass =
-            afterRide < 10 ? "status-danger" :
-            afterRide <= reserve ? "status-watch" : "";
+            batteryAfterRide < 10
+                ? "status-danger"
+                : batteryAfterRide <= reserve
+                    ? "status-watch"
+                    : "";
 
         html += `
-        <tr class="${rowClass}">
-            <td>${item.day}</td>
-            <td>${item.km.toFixed(1)}</td>
-            <td>${start.toFixed(1)}%</td>
-            <td><b>${afterRide.toFixed(1)}%</b></td>
-            <td>${ecoLeft.toFixed(1)} KM</td>
-            <td>${powerLeft.toFixed(1)} KM</td>
-            <td>${rideStatus}</td>
-            <td>${action}</td>
-            <td>${afterChargeText}</td>
-        </tr>`;
+            <tr class="${rowClass}">
+                <td>${item.day}</td>
+                <td>${item.km.toFixed(1)}</td>
+                <td>${startBatteryForDay.toFixed(1)}%</td>
+                <td><b>${batteryAfterRide.toFixed(1)}%</b></td>
+                <td>${ecoRangeLeft.toFixed(1)} KM</td>
+                <td>${powerRangeLeft.toFixed(1)} KM</td>
+                <td>${batteryStatus}</td>
+                <td>${chargeAction}</td>
+                <td>${afterChargeText}</td>
+            </tr>
+        `;
 
-        battery = afterCharge;
+        battery = batteryAfterCharge;
     });
 
     html += "</table>";
 
     document.getElementById("projection").innerHTML = html;
 
-    const todayUsage = rotated[0].km;
+    const todayUsage = rotatedUsage[0].km;
 
-    const todayAfter = Math.max(
+    const batteryAfterTodayRide = Math.max(
         0,
         startBattery - ((todayUsage / ECO_FULL_RANGE) * 100)
     );
 
-    const tomorrow = rotated[1];
+    const tomorrow = rotatedUsage[1];
 
-    const tomorrowNeed = tomorrow
+    const tomorrowBatteryUsage = tomorrow
         ? (tomorrow.km / ECO_FULL_RANGE) * 100
         : 0;
 
-    const tomorrowAfter = Math.max(
+    const batteryAfterTomorrowRide = Math.max(
         0,
-        todayAfter - tomorrowNeed
+        batteryAfterTodayRide - tomorrowBatteryUsage
     );
 
-    const todayIsScheduledChargeNight = chargeScheduled(today);
+    const todayHasScheduledCharge = chargeScheduled(today);
 
     let recommendation;
 
-    if(todayIsScheduledChargeNight && todayAfter < target){
-        const percentToAdd = target - todayAfter;
+    if(todayHasScheduledCharge && batteryAfterTodayRide < target){
+        const percentToAdd = target - batteryAfterTodayRide;
 
         const batteryEnergyAdded =
             (percentToAdd / 100) * capacity;
@@ -685,58 +929,66 @@ function calculate(){
         const gridEnergy =
             batteryEnergyAdded / (efficiency / 100);
 
-        const cost = gridEnergy * tariff;
+        const chargeCost = gridEnergy * tariff;
 
         recommendation = `
-        <div class="charge-box good-box">
-            🔌 <b>Scheduled Charging Tonight</b><br>
-            Battery after today's ride: ${todayAfter.toFixed(1)}%<br>
-            Charging target: ${target}%<br>
-            Estimated grid energy: ${gridEnergy.toFixed(2)} kWh<br>
-            Estimated cost: ₹${cost.toFixed(2)}
-        </div>`;
+            <div class="charge-box good-box">
+                🔌 <b>Scheduled Charging Tonight</b><br>
+                Battery after today's ride:
+                ${batteryAfterTodayRide.toFixed(1)}%<br>
+                Charging target: ${target}%<br>
+                Estimated grid energy: ${gridEnergy.toFixed(2)} kWh<br>
+                Estimated cost: ₹${chargeCost.toFixed(2)}
+            </div>
+        `;
     } else if(
-        todayAfter <= reserve ||
-        (todayAfter / 100 * ECO_FULL_RANGE) <= bufferKm
+        batteryAfterTodayRide <= reserve ||
+        (batteryAfterTodayRide / 100 * ECO_FULL_RANGE) <= bufferKm
     ){
         recommendation = `
-        <div class="charge-box warning-box">
-            🔌 <b>Charging Recommended</b><br>
-            Battery after today's ride: ${todayAfter.toFixed(1)}%<br>
-            Charging target: ${target}%<br>
-            ${tomorrow ? `
-                Tomorrow (${tomorrow.day}): ${tomorrow.km.toFixed(1)} KM<br>
-                Expected battery after tomorrow: ${tomorrowAfter.toFixed(1)}%
-            ` : ""}
-        </div>`;
+            <div class="charge-box warning-box">
+                🔌 <b>Charging Recommended</b><br>
+                Battery after today's ride:
+                ${batteryAfterTodayRide.toFixed(1)}%<br>
+                Charging target: ${target}%<br>
+                ${tomorrow ? `
+                    Tomorrow (${tomorrow.day}): ${tomorrow.km.toFixed(1)} KM<br>
+                    Expected battery after tomorrow:
+                    ${batteryAfterTomorrowRide.toFixed(1)}%
+                ` : ""}
+            </div>
+        `;
     } else {
         recommendation = `
-        <div class="charge-box good-box">
-            ✅ <b>No Charging Required Tonight</b><br>
-            Expected battery after today's ride: ${todayAfter.toFixed(1)}%<br>
-            ${tomorrow ? `
-                Tomorrow: ${tomorrow.km.toFixed(1)} KM →
-                expected ${tomorrowAfter.toFixed(1)}% after ride.
-            ` : ""}
-        </div>`;
+            <div class="charge-box good-box">
+                ✅ <b>No Charging Required Tonight</b><br>
+                Expected battery after today's ride:
+                ${batteryAfterTodayRide.toFixed(1)}%<br>
+                ${tomorrow ? `
+                    Tomorrow: ${tomorrow.km.toFixed(1)} KM →
+                    expected ${batteryAfterTomorrowRide.toFixed(1)}% after ride.
+                ` : ""}
+            </div>
+        `;
     }
 
     if(firstChargeNeed){
         recommendation += `
-        <div class="note">
-            Next forecast charging requirement:
-            <b>${firstChargeNeed}</b>, unless you charge earlier.
-        </div>`;
+            <div class="note">
+                Next forecast charging requirement:
+                <b>${firstChargeNeed}</b>, unless you charge earlier.
+            </div>
+        `;
     }
 
     document.getElementById("chargeRecommendation").innerHTML =
         recommendation;
 
-    const totalKm = usage.reduce((sum, item) => {
+    const totalWeeklyKm = usage.reduce((sum, item) => {
         return sum + item.km;
     }, 0);
 
-    const monthlyKm = totalKm * 52 / 12;
+    const monthlyKm = totalWeeklyKm * 52 / 12;
 
     const weeklyCost = weeklyGridEnergy * tariff;
     const monthlyGridEnergy = weeklyGridEnergy * 52 / 12;
@@ -758,61 +1010,70 @@ function calculate(){
         "₹" + monthlyCost.toFixed(2);
 
     document.getElementById("summary").innerHTML = `
-    <div class="stats-box">
-        <div class="stat">
-            <h3>Current Eco Range</h3>
-            <strong>${ecoRange.toFixed(1)} km</strong>
-        </div>
+        <div class="stats-box">
+            <div class="stat">
+                <h3>Current Eco Range</h3>
+                <strong>${ecoRange.toFixed(1)} km</strong>
+            </div>
 
-        <div class="stat">
-            <h3>Current Power Range</h3>
-            <strong>${powerRange.toFixed(1)} km</strong>
-        </div>
+            <div class="stat">
+                <h3>Current Power Range</h3>
+                <strong>${powerRange.toFixed(1)} km</strong>
+            </div>
 
-        <div class="stat">
-            <h3>Weekly Distance</h3>
-            <strong>${totalKm.toFixed(1)} km</strong>
-        </div>
+            <div class="stat">
+                <h3>Weekly Distance</h3>
+                <strong>${totalWeeklyKm.toFixed(1)} km</strong>
+            </div>
 
-        <div class="stat">
-            <h3>Minimum Forecast</h3>
-            <strong>${minimumBattery.toFixed(1)}%</strong>
+            <div class="stat">
+                <h3>Minimum Forecast</h3>
+                <strong>${minimumBattery.toFixed(1)}%</strong>
+            </div>
         </div>
-    </div>`;
+    `;
 
     document.getElementById("stats").innerHTML = `
-    <div class="stats-box">
-        <div class="stat">
-            <h3>Monthly Distance</h3>
-            <strong>${monthlyKm.toFixed(0)} km</strong>
+        <div class="stats-box">
+            <div class="stat">
+                <h3>Monthly Distance</h3>
+                <strong>${monthlyKm.toFixed(0)} km</strong>
+            </div>
+
+            <div class="stat">
+                <h3>Weekly Charging Sessions</h3>
+                <strong>${chargingSessions}</strong>
+            </div>
+
+            <div class="stat">
+                <h3>Normal Charge Target</h3>
+                <strong>${target}%</strong>
+            </div>
+
+            <div class="stat">
+                <h3>Minimum Reserve</h3>
+                <strong>${reserve}%</strong>
+            </div>
         </div>
 
-        <div class="stat">
-            <h3>Weekly Charging Sessions</h3>
-            <strong>${chargingSessions}</strong>
+        <div class="note">
+            <b>Cost basis:</b> Weekly and monthly estimates are calculated
+            using the planned scheduled charging sessions and the selected
+            charging-efficiency value.
         </div>
+    `;
 
-        <div class="stat">
-            <h3>Target Charge</h3>
-            <strong>${target}%</strong>
-        </div>
-
-        <div class="stat">
-            <h3>Minimum Reserve</h3>
-            <strong>${reserve}%</strong>
-        </div>
-    </div>
-
-    <div class="note">
-        <b>Cost basis:</b> Weekly and monthly estimates use the forecasted
-        scheduled charge sessions and include the charging efficiency selected
-        above.
-    </div>`;
+    updateBalancingRecommendation();
 }
 
 window.onload = function(){
+    const currentDate = new Date();
+
     document.getElementById("todayDay").value =
-        dayNames[new Date().getDay()];
+        dayNames[currentDate.getDay()];
+
+    document.getElementById("lastBalanceDate").value =
+        formatDateForInput(currentDate);
 
     calculate();
 };
